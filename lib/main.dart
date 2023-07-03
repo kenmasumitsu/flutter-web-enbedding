@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'package:js/js.dart' as js;
+import 'package:js/js_util.dart' as js_util;
+
 void main() {
   runApp(const MyApp());
 }
@@ -54,8 +57,23 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
+// _MyHomePageState を JS側にExport可能にする。
+@js.JSExport()
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+
+  @override
+  void initState() {
+    super.initState();
+
+    // _MyHomePageStateオブジェクトを、JS側にExportする
+    final export = js_util.createDartExport(this);
+
+    // JS側の globalThis(ブラウザの場合は、window)に プロパティ(_appState)、値 (export)をセットする。
+    js_util.setProperty(js_util.globalThis, '_appState', export);
+    // JS側の globalThisの_stateSetメソッドを引数無しで呼び出す。
+    js_util.callMethod<void>(js_util.globalThis, '_stateSet', []);
+  }
 
   void _incrementCounter() {
     setState(() {
