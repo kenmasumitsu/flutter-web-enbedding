@@ -38,6 +38,9 @@
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
+
+  <!-- 3. #flutter_targetのスタイルを指定。-->
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 <body>
   <script>
@@ -48,12 +51,23 @@
           serviceWorkerVersion: serviceWorkerVersion,
         },
         onEntrypointLoaded: function(engineInitializer) {
-          engineInitializer.initializeEngine().then(function(appRunner) {
+          engineInitializer.initializeEngine({
+            // 2. HTMLエレメントを指定
+            hostElement: document.querySelector("#flutter_target"),
+          }).then(function(appRunner) {
             appRunner.runApp();
           });
         }
       });
     });
   </script>
+  <section class="contents">
+    <div>この下にFlutterアプリを表示する。</div>
+    <!--This is the div which contains the flutter app-->
+    <article>
+      <!-- 1. flutterアプリを表示するHTMLエレメント -->
+      <div id="flutter_target" class="center"></div>
+    </article>
+  </section>
 </body>
 </html>
