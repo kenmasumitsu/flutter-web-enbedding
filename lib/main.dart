@@ -90,9 +90,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @js.JSExport()
   int get count => _counter;
 
-  // void sayHello() {
-  //   print('say hello');
-  // }
 
   @override
   Widget build(BuildContext context) {
