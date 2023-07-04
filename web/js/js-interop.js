@@ -24,5 +24,10 @@
 
     // updateState()を呼び出す。初期値0となる。
     updateState();
+
+    // FlutterのaddHandlerを呼び出す。
+    // カウンタが変更すると、コールバック関数 updateState が呼ばれる。
+    appState.addHandler(updateState);
+
   };
 }());
