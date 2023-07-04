@@ -75,6 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
     js_util.callMethod<void>(js_util.globalThis, '_stateSet', []);
   }
 
+  @js.JSExport()
   void _incrementCounter() {
     setState(() {
       // This call to setState tells the Flutter framework that something has
@@ -85,6 +86,13 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter++;
     });
   }
+
+  @js.JSExport()
+  int get count => _counter;
+
+  // void sayHello() {
+  //   print('say hello');
+  // }
 
   @override
   Widget build(BuildContext context) {

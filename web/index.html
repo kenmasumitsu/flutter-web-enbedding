@@ -42,7 +42,7 @@
   <!-- 3. #flutter_targetのスタイルを指定。-->
   <link rel="stylesheet" type="text/css" href="css/style.css" />
 
-  <!-- 4. js/js-interop.js の読み込み -->
+  <!-- js/js-interop.js の読み込み -->
   <script src="js/js-interop.js" defer></script>
 </head>
 <body>
@@ -65,8 +65,20 @@
     });
   </script>
   <section class="contents">
-    <div>この下にFlutterアプリを表示する。</div>
-    <!--This is the div which contains the flutter app-->
+    <aside id="demo_controls">
+      <fieldset id="interop">
+        <legend>JS Interop</legend>
+
+        <!--This is the value box-->
+        <label for="value">
+          Value
+          <input id="value" value="" type="text" readonly />
+        </label>
+
+        <!--This is the button-->
+        <input id="increment" value="Increment" type="button" />
+      </fieldset>
+    </aside>
     <article>
       <!-- 1. flutterアプリを表示するHTMLエレメント -->
       <div id="flutter_target" class="center"></div>
