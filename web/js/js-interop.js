@@ -17,8 +17,9 @@
     const valueField = document.querySelector("#value");
     const updateState = function () {
       // @js.JSExport()された、_MyHomePageState.count の呼び出し
-      //valueField.value = appState.count;
-      valueField.value = appState._counter;
+      valueField.value = appState.count;
+      // これでも動く。 _counter は @js.JSExport() されていないのに
+      // valueField.value = appState._counter;
     };
 
     // updateState()を呼び出す。初期値0となる。
