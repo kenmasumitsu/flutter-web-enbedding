@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 
 import 'package:js/js.dart' as js;
@@ -59,8 +58,6 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-// _MyHomePageState を JS側にExport可能にする。
-@js.JSExport()
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   final _streamController = StreamController<void>.broadcast();
