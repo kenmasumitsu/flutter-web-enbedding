@@ -29,5 +29,14 @@
     // カウンタが変更すると、コールバック関数 updateState が呼ばれる。
     appState.addHandler(updateState);
 
+
+    const sayButton = document.querySelector("#say");
+    sayButton.addEventListener("click", async (event) => {
+        console.log('before');
+        const t =  appState.sayDelayedHello();
+        console.log(t);
+        console.log('after');
+    });
+
   };
 }());

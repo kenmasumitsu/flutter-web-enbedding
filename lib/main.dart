@@ -103,6 +103,13 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  @js.JSExport()
+  Future<int> sayDelayedHello() async {
+    await Future.delayed(const Duration(seconds: 5));
+    print('say hello');
+    return 1;
+  }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
