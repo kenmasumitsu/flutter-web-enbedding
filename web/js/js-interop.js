@@ -32,10 +32,13 @@
 
     const sayButton = document.querySelector("#say");
     sayButton.addEventListener("click", async (event) => {
-        console.log('before');
-        const t =  appState.sayDelayedHello();
-        console.log(t);
-        console.log('after');
+
+      console.log('before');
+      // 期待通り動かない。
+      const t =  appState.sayDelayedHello();
+      // 返り値が Promiseにならないので、awaitできない。
+      console.log(t);
+      console.log('after');
     });
 
   };
